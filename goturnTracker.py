@@ -16,7 +16,7 @@ if  not (os.path.isfile('goturn.caffemodel') and os.path.isfile('goturn.prototxt
 tracker = cv2.TrackerGOTURN_create()   
 
 # Read video
-video = cv2.VideoCapture("chaplin.mp4")
+video = cv2.VideoCapture("drone1.mp4")
 
 # Exit if video not opened
 if not video.isOpened():
@@ -28,10 +28,12 @@ ok,frame = video.read()
 if not ok:
     print("Cannot read video file")
     sys.exit()
+    
+
 
 
 # Define a bounding box
-bbox = (0, 0, 0, 0)
+bbox = (490, 370, 610, 396)
 
 # Uncomment the line below to select a different bounding box
 #bbox = cv2.selectROI(frame, False)
