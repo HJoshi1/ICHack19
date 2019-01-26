@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{2D594B15-8001-1CCD-F3B0-21EC7111AFA2}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/csvread.cs">
+    <Files>
+      <File FileName="Assets/scripts/csvread.cs" Line="16" Column="67" />
+      <File FileName="Assets/scripts/coords.cs" Line="7" Column="20" />
+      <File FileName="Assets/scripts/moves.cs" Line="11" Column="8" />
+      <File FileName="Assets/Resources/coords.csv" Line="27" Column="6" />
+      <File FileName="Assets/Resources/144718_1.csv" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
