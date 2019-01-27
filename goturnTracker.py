@@ -45,6 +45,7 @@ ok1 = tracker1.init(frame,bbox1)
 
 row = ["x1", "y1", "x2", "y2"]
 
+
 with open('coords.csv', 'a') as csvFile:
             writer = csv.writer(csvFile)
             writer.writerow(row)
