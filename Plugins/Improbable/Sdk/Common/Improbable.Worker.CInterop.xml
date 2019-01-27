@@ -1,0 +1,536 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Improbable.Worker.CInterop</name>
+    </assembly>
+    <members>
+        <member name="T:Improbable.Worker.CInterop.ComponentData">
+            <summary>
+            Represents data-at-rest for a component identified by the ComponentId.
+            Underlying binary data format can be either raw SchemaData or UserHandle
+            controlled entirely by user.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.ComponentData.Acquire">
+            <summary>
+            Increases the reference count of this ComponentData if it is owned by the SDK (returned
+            in the OpList). You must call <c>.Release()</c> once you are done using it, otherwise
+            memory will leak.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the ComponentData is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.ComponentData.Release">
+            <summary>
+            Decreases the reference count (and frees the memory) after calling <c>.Acquire()</c>
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the ComponentData is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.ComponentUpdate">
+            <summary>
+            Represents an update for the component identified by the ComponentId.
+            Underlying binary data format can be either raw SchemaData or some UserHandle
+            controlled entirely by user.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.ComponentUpdate.Acquire">
+            <summary>
+            Increases the reference count of this ComponentUpdate if it is owned by the SDK (returned
+            in the OpList). You must call <c>.Release()</c> once you are done using it, otherwise
+            memory will leak.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the ComponentUpdate is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.ComponentUpdate.Release">
+            <summary>
+            Decreases the reference count (and frees the memory) after calling <c>.Acquire()</c>
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the ComponentUpdate is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.CommandRequest">
+            <summary>
+            Represents a command request for a component identified by the ComponentId.
+            Underlying binary data format can be either raw SchemaData or UserHandle
+            controlled entirely by user.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.CommandRequest.Acquire">
+            <summary>
+            Increases the reference count of this CommandRequest if it is owned by the SDK (returned
+            in the OpList). You must call <c>.Release()</c> once you are done using it, otherwise
+            memory will leak.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the CommandRequest is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.CommandRequest.Release">
+            <summary>
+            Decreases the reference count (and frees the memory) after calling <c>.Acquire()</c>
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the CommandRequest is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.CommandResponse">
+            <summary>
+            Represents a command response for a component identified by the ComponentId.
+            Underlying binary data format can be either raw SchemaData or UserHandle
+            controlled entirely by user.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.CommandResponse.Acquire">
+            <summary>
+            Increases the reference count of this CommandResponse if it is owned by the SDK (returned
+            in the OpList). You must call <c>.Release()</c> once you are done using it, otherwise
+            memory will leak.
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the CommandResponse is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.CommandResponse.Release">
+            <summary>
+            Decreases the reference count (and frees the memory) after calling <c>.Acquire()</c>
+            </summary>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the CommandResponse is not owned by the SDK.
+            </exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Connection.Dispose">
+            <inheritdoc cref="T:System.IDisposable"/>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Constants">
+            <summary>
+            A struct to contain constants that can be shared in Improbable.Worker.CInterop.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Constants.WorkerLibrary">
+            <summary>
+            Constant used to alter between static/dynamic linking.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Alpha.Locator.Dispose">
+            <inheritdoc cref="T:System.IDisposable"/>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.LocatorParameters.PlayerIdentity">
+            <summary>
+            Parameters used to authenticate. Usually obtained from a game authentication server.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.LocatorParameters.Logging">
+            <summary>
+            Parameters for configuring logging.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.LocatorParameters.UseInsecureConnection">
+            <summary>
+            Whether to use an insecure (non-TLS) connection for local development.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.LocatorParameters.EnableLogging">
+            <summary>
+            Whether to enable logging for the Locator flow.
+            </summary>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Alpha.ErasureCodecParameters">
+            <summary>
+            Parameters to configure erasure coding, a forward error correction technique which
+            increases bandwidth usage but may improve latency on unreliable networks.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.ErasureCodecParameters.OriginalPacketCount">
+            <summary>
+            Number of consecutive packets to send before sending redundant recovery packets.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.ErasureCodecParameters.RecoveryPacketCount">
+            <summary>
+            Number of redundant recovery packets to send for each group of consecutive original
+            packets. These packets are used to recover up to the same number of lost original
+            packets.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.ErasureCodecParameters.WindowSize">
+            <summary>
+            Number of batches that can be stored in memory, where a batch contains packets belonging to
+            the same group of consecutive original packets and the corresponding recovery packets. Each
+            batch contains up to OriginalPacketCount plus RecoveryPacketCount packets.
+            </summary>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Alpha.HeartbeatParameters">
+            <summary>
+            Parameters to configure internal heartbeating which can detect unresponsive peers. If an
+            unresponsive peer is detected, a Improbable.Worker.DisconnectOp will be enqueued in the op
+            list.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.HeartbeatParameters.IntervalMillis">
+            <summary>
+            Minimum interval, in milliseconds, between which heartbeat messages are sent to the
+            peer. A new heartbeat won't be sent before a response for the original heartbeat is
+            received.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.HeartbeatParameters.TimeoutMillis">
+            <summary>
+            Time, in milliseconds, after which the peer will be deemed unresponsive.
+            </summary>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters">
+            <summary>
+            Parameters for configuring a KCP connection. Used by NetworkParameters.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.FastRetransmission">
+            <summary>
+            Whether to enable fast retransmission, which causes retransmission delays to increase
+            more slowly when retransmitting timed out packets multiple times.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.EarlyRetransmission">
+            <summary>
+            Whether to enable early retransmission, which causes optimistic retransmission of
+            earlier packets when acknowledgements are received for packets which were sent later,
+            rather than waiting until the retransmission timeout has expired.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.NonConcessionalFlowControl">
+            <summary>
+            Whether to enable non-concessional flow control, which disables the usage of
+            congestion windows (which are used to reduce packet loss across congested networks).
+            Enabling non-concessional flow control can help optimize for low-latency delivery of
+            small messages.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.MultiplexLevel">
+            <summary>
+            Number of multiplexed KCP streams.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.UpdateIntervalMillis">
+            <summary>
+            Interval, in milliseconds, between which the KCP transport layer sends and receives
+            packets waiting in its send and receive buffers respectively.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.MinRtoMillis">
+            <summary>
+            Hard limit on the minimum retransmission timeout. A packet will be resent if an
+            acknowledgment has not been received from the peer within a time period known as the
+            retransmission timeout. The retransmission timeout is calculated based on estimated
+            round trip times to the remote peer, but it will never be set to a value lower than the
+            minimum retransmission timeout. If you set this parameter to a value which is much
+            higher than the average round trip time to a peer, it will likely result in packets not
+            being resent as early as they could be, increasing latency for retransmitted packets.
+            However, if you set this parameter to a value which is lower than the average round trip
+            time (or ping), packets will be retransmitted even if they are not lost, which will
+            cause unnecessary bandwidth overhead until round trip times are calculated. For more
+            information on retransmission timeouts and their calculation, see
+            https://tools.ietf.org/html/rfc6298. Note, however, that the RFC pertains to TCP, and
+            therefore it focuses on avoiding unnecessary retransmissions rather than optimizing for
+            latency.
+            Set to zero to use default, which is lower when KcpNetworkParameters.FastRetransmission
+            is enabled.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.WindowSize">
+            <summary>
+            KCP flow-control window size, in number of packets. The window applies to sending
+            across all streams. This means that messages being sent to the remote peer will be
+            delayed if there are KcpNetworkParameters.WindowSize packets still waiting to be
+            acknowledged by the peer. The same window also applies to receiving packets, but it only
+            applies to each KCP stream independently. This limits the rate at which a peer sends
+            data. However, it does not bound the total memory that may be used by KCP internally
+            for buffering incoming messages in the way it does for outgoing messages.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.EnableErasureCodec">
+            <summary>
+            Whether to enable the erasure codec.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.ErasureCodec">
+            <summary>
+            Erasure codec parameters.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Alpha.KcpNetworkParameters.Heartbeat">
+            <summary>
+            Heartbeat parameters.
+            </summary>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Future`1">
+            <summary>
+            A class representing the standard future concept. It can be used for both synchronous
+            and asynchronous interaction.
+            </summary>
+            <typeparam name="T">The type of object the future returns.</typeparam>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Future`1.Dispose">
+            <inheritdoc cref="T:System.IDisposable"/>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Future`1.Get">
+            <summary>
+            Waits until the result becomes available, and returns it. If the result was already
+            obtained by a previous call to Get() or Get(timeoutMillis), this function returns it
+            immediately.
+            </summary>
+            <returns>The result.</returns>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Future`1.TryGet(`0@,System.UInt32)">
+            <summary>
+            Checks if the result is available. If the result is available, this function returns
+            true and the result will be stored in the out parameter. Otherwise, the function
+            returns false.
+            </summary>
+            <param name="result">The result of the future if it has finished.</param>
+            <param name="timeoutMillis">
+            An optional time to wait for the result to become available.
+            </param>
+            <returns>True if the result is available, false otherwise.</returns>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Locator.Dispose">
+            <inheritdoc cref="T:System.IDisposable"/>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Locator.ConnectAsync(System.String,Improbable.Worker.CInterop.ConnectionParameters,System.Func{Improbable.Worker.CInterop.QueueStatus,System.Boolean})">
+            <remark>
+            Ensure that the QueueStatus callback does not throw an exception. Otherwise, a fatal
+            crash may occur.
+            </remark>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.OpList.Dispose">
+            <inheritdoc cref="T:System.IDisposable"/>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.ComponentVtable">
+            <summary>
+            Acts as a container of function callbacks which are called by the network threads when
+            component data needs to be serialized or deserialized. You should ensure that no exceptions
+            are thrown from any of these callbacks, as this can cause a crash in the native thread.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.ConnectionParameters.ComponentVtables">
+             <summary>
+             Vtables used by the connection when saving and reading snapshots. Separate behavior
+             can be specified per component type, per handle type (data, update, command request,
+             command response) and per direction (serialization, deserialization).
+            </summary>
+             <remarks>
+             If no vtable is provided for given component, the default vtable will be used instead
+             if it is not null, otherwise an error will occur when dealing with that component.
+             </remarks>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.ConnectionParameters.DefaultComponentVtable">
+            <summary>
+            The default vtable used by Connection when there's no component-specific vtable
+            specified.
+            </summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.SnapshotParameters.ComponentVtables">
+             <summary>
+             Vtables used by the connection when saving and reading snapshots. Separate behavior
+             can be specified per component type, per handle type (data, update, command request,
+             command response) and per direction (serialization, deserialization).
+            </summary>
+             <remarks>
+             If no vtable is provided for given component, the default vtable will be used instead
+             if it is not null, otherwise an error will occur when dealing with that component.
+             </remarks>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.SnapshotParameters.DefaultComponentVtable">
+            <summary>
+            The default vtable used by Connection when there's no component-specific vtable
+            specified.
+            </summary>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Query.IConstraint">
+            <summary>Base class for entity query constraints.</summary>
+        </member>
+        <member name="F:Improbable.Worker.CInterop.Query.SnapshotResultType.ComponentIds">
+            <summary>
+            If nonempty, filters the components returned in the snapshot for each entity.
+            </summary>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.SchemaComponentData">
+            <summary>
+            A wrapper over a raw Schema_ComponentData pointer. Ownership of the memory is transferred
+            when this object is passed into any other API. If this object is never passed into an API,
+            then <c>.Destroy()</c> must be called explicitly.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaComponentData.#ctor(Improbable.Worker.CInterop.Internal.CSchema.ComponentData*)">
+            <exception cref="T:System.ArgumentException">if the handle pointer is null.</exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.SchemaComponentUpdate">
+            <summary>
+            A wrapper over a raw Schema_ComponentUpdate pointer. Ownership of the memory is  transferred
+            when this object is passed into any other API. If this object is never passed into an API,
+            then <c>.Destroy()</c> must be called explicitly.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaComponentUpdate.#ctor(Improbable.Worker.CInterop.Internal.CSchema.ComponentUpdate*)">
+            <exception cref="T:System.ArgumentException">if the handle pointer is null.</exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.SchemaCommandRequest">
+            <summary>
+            A wrapper over a raw Schema_CommandRequest pointer. Ownership of the memory is transferred
+            when this object is passed into any other API. If this object is never passed into an API,
+            then <c>.Destroy()</c> must be called explicitly.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaCommandRequest.#ctor(Improbable.Worker.CInterop.Internal.CSchema.CommandRequest*)">
+            <exception cref="T:System.ArgumentException">if the handle pointer is null.</exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.SchemaCommandResponse">
+            <summary>
+            A wrapper over a raw Schema_CommandResponse pointer. Ownership of the memory is transferred
+            when this object is passed into any other API. If this object is never passed into an API,
+            then <c>.Destroy()</c> must be called explicitly.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaCommandResponse.#ctor(Improbable.Worker.CInterop.Internal.CSchema.CommandResponse*)">
+            <exception cref="T:System.ArgumentException">if the handle pointer is null.</exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.SchemaObject">
+             <summary>
+             A wrapper over a raw Schema_Object pointer.
+            
+             In general, if you try to obtain a value from a field when the field does not exist (or the
+             type is incorrect), a default initialized value of that type will be returned. If you try to
+             obtain an Object from a field that doesn't exist, it will return a _valid_ SchemaObject
+             which is unreachable (so no way to obtain it by calling GetObject(...)). The GetXXCount
+             functions can be used to detect this case.
+            
+             In addition to unsafe GetXXList and AddXXList functions that rely on the caller to provide
+             an unmanaged buffer, there are safe wrappers that operate on C# arrays. Note that these are
+             slightly less performant as they will make a copy of the data, but it avoids any potential
+             lifetime issues.
+            
+             Note that it is advised not to use this data structure to keep around data in a persistent
+             way due to the lack of type checking. Ideally, this should only be used to hold an
+             intermediate "serialized" object.
+             </summary>
+             <remarks>
+             SchemaObject is the main type for data manipulation, and roughly-speaking corresponds to an
+             instance of a "type" as defined in schema. Each SchemaObject is owned by a "root" schema type
+             instance, of which there are four: SchemaCommandRequest, SchemaCommandResponse,
+             SchemaComponentData, and SchemaComponentUpdate.
+            
+             Each field defined in schema has a _field ID_, a  _type_ and an _arity_. For each type, there is
+             a family of functions that can be used to read and write fields of that type for a particular
+             field ID inside a SchemaObject. The mapping from schema type to function family is given below:
+            
+                  .schema type | function family
+             ------------------|----------------
+                         int32 | Int32
+                         int64 | Int64
+                        uint32 | Uint32
+                        uint64 | Uint64
+                        sint32 | Sint32
+                        sint64 | Sint64
+                       fixed32 | Fixed32
+                       fixed64 | Fixed64
+                      sfixed32 | Sfixed32
+                      sfixed64 | Sfixed64
+                          bool | Bool
+                         float | Float
+                        double | Double
+                        string | Bytes / String
+                      EntityId | EntityId (alias for Int64)
+                         bytes | Bytes
+             user-defined enum | Enum (alias for Uint32)
+             user-defined type | Object
+            
+             The arity of a field is either singular, option, or list. The same function family can be used
+             for manipulating fields of any arity: a singular field is simply a field whose ID occurs exactly
+             once; an option field is a field whose ID occurs zero or one times; and a list field is a field
+             whose ID occurs any number of times.
+            
+             Therefore, typically, where X is the function family, we use the GetX and AddX
+             functions to read and write singular fields; the GetXCount, GetX and AddX
+             functions to read and write option fields, and the GetXCount, IndexX and
+             AddX functions to read and write list fields. However, these functions are all
+             interopable: internally, GetX just retrieves the last occurence of the given field ID, for
+             instance.
+            
+             Note that for maximum efficiency, fields should be accessed in increasing ID order. If there
+             are multiple values in a single field ID (GetXXCount is greater than 1), then they should
+             be accessed in increasing index order.
+            
+             Map fields are represented as lists of Object fields, where each object represents an entry in
+             the map, and has the key under field ID 1 (SchemaMapKeyFieldId) and the value under field ID
+             2 (SchemaMapValueFieldId).
+            
+             It is the responsibility of the user to ensure that SchemaObjects are accessed and mutated in a
+             way consistent with the schema definitions of their corresponding types. Typically, this is done
+             by writing a custom code generator for the schema AST.
+            
+             </remarks>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaObject.ShallowCopy(Improbable.Worker.CInterop.SchemaObject)">
+            <remark>
+            If `this == other`, or if the objects are not associated with the same root schema type
+            instance (SchemaComponentData, etc), no operation is performed.
+            </remark>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaObject.ShallowCopyField(Improbable.Worker.CInterop.SchemaObject,System.UInt32)">
+            <remark>
+            If `this == other`, or if the objects are not associated with the same root schema type
+            instance (SchemaComponentData, etc), no operation is performed.
+            </remark>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaObject.MergeFromBuffer(System.Byte[])">
+            <exception cref="T:System.InvalidOperationException">if there's a failure deserializing the buffer.</exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaObject.Serialize">
+            <exception cref="T:System.InvalidOperationException">if there's a failure serializing the object.</exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SchemaObject.GetObject(System.UInt32)">
+            <remark>
+            Note that the schema library deserializes schema objects lazily, so calling `GetObject`
+            can cause more of the buffer to be deserialized, triggering an error. For that reason,
+            it is possible for an exception to be thrown.
+            </remark>
+            <exception cref="T:System.InvalidOperationException">if there's a failure deserializing the buffer.</exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SnapshotInputStream.ReadEntity(System.Int64@,Improbable.Worker.CInterop.Entity@)">
+            <exception cref="T:System.IO.InvalidDataException">if any error is encountered</exception>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.SnapshotOutputStream.WriteEntity(System.Int64,Improbable.Worker.CInterop.Entity)">
+            <exception cref="T:System.IO.InvalidDataException">if any error is encountered</exception>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Internal.Contract">
+            <summary>
+            Class providing methods similar to System.Diagnostics.Contract in .NET 4.0.
+            </summary>
+        </member>
+        <member name="M:Improbable.Worker.CInterop.Internal.Contract.Requires``1(System.Boolean,System.String,System.String)">
+            <summary>
+            Throws the exception <typeparamref name="TException"/> with the parameter paramName
+            that caused the exception and the exception message passed to the method if
+            <paramref name="condition"/> is false.
+            </summary>
+        </member>
+        <member name="T:Improbable.Worker.CInterop.Internal.MonoPInvokeCallbackAttribute">
+            <summary>
+            This attribute is valid on static functions and it is used by Mono's
+            Ahead of Time Compiler (AOT) to generate the code necessary to support
+            native calls back into managed code.
+            </summary>
+            <remarks>
+            Implemented here as a custom attribute as we do not include Xamarin's
+            Mono library within the C# Worker SDK layer itself. Based on the official Mono
+            implementation.
+            See: https://github.com/mono/mono/blob/master/mcs/class/System/Mono.Util/MonoPInvokeCallbackAttribute.cs
+            See: https://developer.xamarin.com/api/type/MonoTouch.MonoPInvokeCallbackAttribute/
+            </remarks>
+        </member>
+    </members>
+</doc>
