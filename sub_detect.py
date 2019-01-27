@@ -7,7 +7,7 @@ Created on Sun Jan 27 01:47:21 2019
 """
 
 import numpy as np
-import cv2 as cv
+import cv2
 import pandas as pd
 
 # Get the names of the output layers
@@ -43,9 +43,9 @@ def postprocess(frame, outs, confThreshold):
     mapping = {'confidences':confidences,'classIds':classIds,'boxes':boxes}
     data = pd.DataFrame(mapping)
     data.sort_values(by=['confidences'],ascending=False)
-    print("len(data): ",len(data))
+    #print("len(data): ",len(data))
     
     for i in range(len(data)):
-        cv.rectangle(frame,(data["boxes"].iloc[i][0],data["boxes"].iloc[i][1]),(data["boxes"].iloc[i][0]+data["boxes"].iloc[i][2],data["boxes"].iloc[i][1]+data["boxes"].iloc[i][3]),(0,255,0),3)
+        cv2.rectangle(frame,(data["boxes"].iloc[i][0],data["boxes"].iloc[i][1]),(data["boxes"].iloc[i][0]+data["boxes"].iloc[i][2],data["boxes"].iloc[i][1]+data["boxes"].iloc[i][3]),(0,255,0),3)
     
         
